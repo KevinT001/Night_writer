@@ -1,13 +1,25 @@
 class NightWriter
+  attr_reader :read_file,
+              :write_file
 
-  def initialize
+  def initialize(read_file, write_file)
 
-    @read_file = ARGV[0]
-    @write_file = ARGV[1]
-    require'pry';binding.pry
+    @read_file = read_file
+    @write_file = write_file
+    
   end
-end
-NightWriter.new
+
+  def read_file_char_count
+    File.read(@read_file).length
+  end
+  
+ 
+
+end   
+
+night_writer = NightWriter.new(ARGV[0], ARGV[1])
+puts "Created '#{night_writer.write_file}' containing #{night_writer.read_file_char_count} characters"
+
 
 #ARGV - search google version for Ruby X
 #night_writer class will take in message.txt with message X
