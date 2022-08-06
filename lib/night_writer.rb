@@ -9,15 +9,26 @@ class NightWriter
     
   end
 
+
   def read_file_char_count
-    File.read(@read_file).length
+    read_file_text.length
   end
   
+  def write_to_output_file #method that will take message.txt content and send it to "braille.txt"
+#iteration 2 --- first bullet point
+      new_file = File.open(write_file, "w")
+      new_file.write(read_file_text)
+      new_file.close
+  end
  
-
+  private
+  def read_file_text  
+    File.read(@read_file)
+  end
 end   
 
 night_writer = NightWriter.new(ARGV[0], ARGV[1])
+night_writer.write_to_output_file 
 puts "Created '#{night_writer.write_file}' containing #{night_writer.read_file_char_count} characters"
 
 
