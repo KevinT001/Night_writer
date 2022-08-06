@@ -1,3 +1,4 @@
+require './lib/translateable'
 class NightWriter
   attr_reader :read_file,
               :write_file
@@ -17,10 +18,14 @@ class NightWriter
   def write_to_output_file #method that will take message.txt content and send it to "braille.txt"
 #iteration 2 --- first bullet point
       new_file = File.open(write_file, "w")
-      new_file.write(read_file_text)
+      new_file.write(translate_to_braille)
       new_file.close
   end
  
+  def translate_to_braille
+    Translateable::translate_to_braille(read_file_text)
+  end
+
   private
   def read_file_text  
     File.read(@read_file)
