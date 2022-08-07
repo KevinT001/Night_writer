@@ -10,6 +10,9 @@ class NightWriter
     
   end
 
+  def input_file_character_count
+      File.read(@input_file).count
+  end
 
   def read_file_char_count
     read_file_text.length
