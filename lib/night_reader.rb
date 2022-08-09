@@ -11,7 +11,7 @@ attr_reader :read_file,
   end
 
   def read_file_char_count
-    read_file_text.length
+    (read_file_text.length - 2) / 6
   end
 
   def write_to_output_file
@@ -30,7 +30,4 @@ attr_reader :read_file,
   end
 end
 
-night_reader = NightReader.new(ARGV[0], ARGV[1])
-night_reader.write_to_output_file 
-puts "Created '#{night_reader.write_file}' containing #{night_reader.read_file_char_count} characters"
 
