@@ -74,5 +74,14 @@ module Translateable
       row.join("") 
     end.join("\n") # creates the 3 rows for each translated character
   end
+
+  def self.translate_to_english(braille_string)
+    braille_lines = braille_string.split("\n")
+    row1 = braille_lines[0]
+    row2 = braille_lines[1]
+    row3 = braille_lines[2]
+    english_chars = []
+  end
+    
 end
    
