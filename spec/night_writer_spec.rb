@@ -17,5 +17,9 @@ RSpec.describe NightWriter do
       expect(@night_writer.read_file).to eq(@read_file)
       expect(@night_writer.write_file).to eq(@write_file)
     end
+
+    it 'can count the number of characters in the read_file' do 
+      expect(@night_writer.read_file_char_count).to eq(11)
+    end
   end
 end
