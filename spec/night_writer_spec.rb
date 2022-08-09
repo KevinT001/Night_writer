@@ -1,3 +1,4 @@
+require './spec/spec_helper'
 require './lib/night_writer'
 
 RSpec.describe NightWriter do 
@@ -21,5 +22,7 @@ RSpec.describe NightWriter do
     it 'can count the number of characters in the read_file' do 
       expect(@night_writer.read_file_char_count).to eq(11)
     end
+
+    
   end
 end
