@@ -81,6 +81,13 @@ module Translateable
     row2 = braille_lines[1]
     row3 = braille_lines[2]
     english_chars = []
+    i = 0
+    while i < row1.size do
+      key = ["#{row1[i]}" + "#{row1[i+1]}", "#{row2[i]}" + "#{row2[i+1]}", "#{row3[i]}" + "#{row3[i+1]}"]
+      english_chars << BRAILLE_TO_ENGLISH[key]
+      i += 2
+    end
+    english_chars.join("")
   end
     
 end
