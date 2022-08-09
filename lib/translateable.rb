@@ -77,6 +77,18 @@ module Translateable
 
   def self.translate_to_english(braille_string)
     braille_lines = braille_string.split("\n")
+    if braille_lines.size > 3
+      consolidated_lines = ["", "", ""]
+      i = 0
+      while i < braille_lines.size
+        consolidated_lines[0] << braille_lines[i]
+        consolidated_lines[1] << braille_lines[i + 1]
+        consolidated_lines[2] << braille_lines[i + 2]
+        i += 3
+      end
+      braille_lines = consolidated_lines
+    end
+    
     row1 = braille_lines[0]
     row2 = braille_lines[1]
     row3 = braille_lines[2]
