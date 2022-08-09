@@ -70,26 +70,9 @@ module Translateable
       braille_chars[1] << braille_char[1] 
       braille_chars[2] << braille_char[2]
     end
-
     braille_chars.map do |row| 
       row.join("") 
     end.join("\n") # creates the 3 rows for each translated character
-  end
-
-  def self.translate_to_english(braille_string)
-    braille_chars = braille_string.split("\n")
-    row1 = braille_chars[0]
-    row2 = braille_chars[1]
-    row3 = braille_chars[2]
-    steps = row1.size / 2
-    english_text = ""
-    for (i = 0; i <= steps; i++) {
-      idx = i * 2;
-      key = row1[i]
-      puts key
-    }
-    puts steps
-    BRAILLE_TO_ENGLISH[["0.", ".0", "00"]] # == 'z'
   end
 end
    
