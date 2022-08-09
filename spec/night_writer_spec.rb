@@ -24,8 +24,6 @@ RSpec.describe NightWriter do
     end
   end
 
-  
-
   describe 'English to braille' do 
     it 'can write to an output file' do
       @night_writer.write_to_output_file

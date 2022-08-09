@@ -29,8 +29,6 @@ module Translateable
     " " => ["..", "..", ".."]
   }.freeze #makes it so you can't adjust this hash elsewhere. 
 
- 
-
   def self.translate_to_braille(english_string)
     #iterate through each character(which is key) 
     #output each value(braille) 
