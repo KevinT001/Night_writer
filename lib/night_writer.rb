@@ -4,10 +4,8 @@ class NightWriter
               :write_file
 
   def initialize(read_file, write_file)
-
     @read_file = read_file
     @write_file = write_file
-    
   end
 
     
@@ -32,11 +30,14 @@ class NightWriter
   def read_file_text  
     File.read(@read_file)
   end
-end   
+end
 
-night_writer = NightWriter.new(ARGV[0], ARGV[1])
-night_writer.write_to_output_file 
-puts "Created '#{night_writer.write_file}' containing #{night_writer.read_file_char_count} characters"
+if ARGV.size == 2
+  night_writer = NightWriter.new(ARGV[0], ARGV[1])
+  night_writer.write_to_output_file 
+  puts "Created '#{night_writer.write_file}' containing #{night_writer.read_file_char_count} characters"
+end
+
 
 
 #ARGV - search google version for Ruby X
