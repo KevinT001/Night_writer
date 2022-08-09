@@ -29,5 +29,3 @@ attr_reader :read_file,
     File.read(@read_file)
   end
 end
-
-

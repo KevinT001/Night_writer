@@ -22,6 +22,7 @@ RSpec.describe NightReader do
   end
 
   describe 'Braille to english' do 
+    
     it 'can write to an output file' do
       @night_reader.write_to_output_file
       expect(File.read("./original_message.txt")).to eq( "hello world")

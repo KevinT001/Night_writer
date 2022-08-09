@@ -30,6 +30,7 @@ RSpec.describe Translateable do
 
     it 'can translate multiple lines of braille' do 
       braille_text = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
+      
       expect(Translateable::translate_to_english(braille_text)).to eq("hello worldhello world")
     end
   end
