@@ -11,7 +11,7 @@ attr_reader :read_file,
   end
 
   def read_file_char_count
-    read_file_text.length
+    (read_file_text.length - 2) / 6
   end
 
   def write_to_output_file

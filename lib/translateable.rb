@@ -65,7 +65,7 @@ module Translateable
     braille_chars = [[],[],[]]
 
     english_string.split("").each do |char|   #splits the string up to each character
-      braille_char = Translateable::ENGLISH_TO_BRAILLE[char] #Gives braille characters
+      braille_char = Translateable::ENGLISH_TO_BRAILLE[char]#Gives braille characters
       braille_chars[0] << braille_char[0] 
       braille_chars[1] << braille_char[1] 
       braille_chars[2] << braille_char[2]

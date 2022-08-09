@@ -3,8 +3,8 @@ require './lib/night_reader'
 
 RSpec.describe NightReader do 
   before :each do 
-    @read_file = "nw_read_file_dummy"
-    @write_file = "nw_write_file_dummy"
+    @read_file = "nr_read_file_dummy"
+    @write_file = "nr_write_file_dummy"
     @night_reader = NightReader.new(@read_file, @write_file)
   end
 

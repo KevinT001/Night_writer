@@ -22,7 +22,12 @@ RSpec.describe NightWriter do
     it 'can count the number of characters in the read_file' do 
       expect(@night_writer.read_file_char_count).to eq(11)
     end
+  end
 
+  describe 'English to braille' do 
 
+    it 'can translate english chars/ words to braille' do 
+      
+    end
   end
 end
