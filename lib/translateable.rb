@@ -1,8 +1,5 @@
 module Translateable
-
-
-  ENGLISH_TO_BRAILLE =     
-    {
+  ENGLISH_TO_BRAILLE = {
     "a" => ["0.", "..", ".."],
     "b" => ["0.", "0.", ".."],
     "c" => ["00", "..", ".."],
@@ -30,64 +27,69 @@ module Translateable
     "y" => ["00", ".0", "00"],
     "z" => ["0.", ".0", "00"],
     " " => ["..", "..", ".."]
-    }.freeze #makes it so you can't adjust this hash elsewhere. 
+  }.freeze #makes it so you can't adjust this hash elsewhere. 
 
- BRAILLE_TO_ENGLISH = {
+  BRAILLE_TO_ENGLISH = {
+    ["0.", "..", ".."] => "a",
+    ["0.", "0.", ".."] => "b",
+    ["00", "..", ".."] => "c",
+    ["00", ".0", ".."] => "d",
+    ["0.", ".0", ".."] => "e",
+    ["00", "0.", ".."] => "f",
+    ["00", "00", ".."] => "g",
+    ["0.", "00", ".."] => "h",
+    [".0", "0.", ".."] => "i",
+    [".0", "00", ".."] => "j",
+    ["0.", "..", "0."] => "k",
+    ["0.", "0.", "0."] => "l",
+    ["00", "..", "0."] => "m",
+    ["00", ".0", "0."] => "n",
+    ["0.", ".0", "0."] => "o",
+    ["00", "0.", "0."] => "p",
+    [".0", "00", "00"] => "q",
+    ["0.", "00", "0."] => "r",
+    [".0", "0.", "0."] => "s",
+    [".0", "00", "0."] => "t",
+    ["0.", "..", "00"] => "u",
+    ["0.", "0.", "00"] => "v",
+    [".0", "00", ".0"] => "w",
+    ["00", "..", "00"] => "x",
+    ["00", ".0", "00"] => "y",
+    ["0.", ".0", "00"] => "z",
+    ["..", "..", ".."] => " "
+  }.freeze
 
-  ["0.", "..", ".."] => "a",
-  ["0.", "0.", ".."] => "b",
-  ["00", "..", ".."] => "c",
-  ["00", ".0", ".."] => "d",
-  ["0.", ".0", ".."] => "e",
-  ["00", "0.", ".."] => "f",
-  ["00", "00", ".."] => "g",
-  ["0.", "00", ".."] => "h",
-  [".0", "0.", ".."] => "i",
-  [".0", "00", ".."] => "j",
-  ["0.", "..", "0."] => "k",
-  ["0.", "0.", "0."] => "l",
-  ["00", "..", "0."] => "m",
-  ["00", ".0", "0."] => "n",
-  ["0.", ".0", "0."] => "o",
-  ["00", "0.", "0."] => "p",
-  [".0", "00", "00"] => "q",
-  ["0.", "00", "0."] => "r",
-  [".0", "0.", "0."] => "s",
-  [".0", "00", "0."] => "t",
-  ["0.", "..", "00"] => "u",
-  ["0.", "0.", "00"] => "v",
-  [".0", "00", ".0"] => "w",
-  ["00", "..", "00"] => "x",
-  ["00", ".0", "00"] => "y",
-  ["0.", ".0", "00"] => "z",
-  ["..", "..", ".."] => " "
- }.freeze
+  def self.translate_to_braille(english_string)
+    #iterate through each character(which is key) 
+    #output each value(braille) 
+    braille_chars = [[],[],[]]
 
+    english_string.split("").each do |char|   #splits the string up to each character
+      braille_char = Translateable::ENGLISH_TO_BRAILLE[char] #Gives braille characters
+      braille_chars[0] << braille_char[0] 
+      braille_chars[1] << braille_char[1] 
+      braille_chars[2] << braille_char[2]
+    end
 
- def self.translate_to_braille(english_string)
-  #iterate through each character(which is key) 
-  #output each value(braille) 
-  braille_chars = [[],[],[]]
-
-  english_string.split("").each do |char|   #splits the string up to each character
-    braille_char = Translateable::ENGLISH_TO_BRAILLE[char] #Gives braille characters
-    braille_chars[0] << braille_char[0] 
-    braille_chars[1] << braille_char[1] 
-    braille_chars[2] << braille_char[2]
+    braille_chars.map do |row| 
+      row.join("") 
+    end.join("\n") # creates the 3 rows for each translated character
   end
-  braille_chars.map do |row| 
-    row.join("") 
-   ( #for each row must have only 80 characters before line break )
-  end.join("\n") # creates the 3 rows for each translated character
+
+  def self.translate_to_english(braille_string)
+    braille_chars = braille_string.split("\n")
+    row1 = braille_chars[0]
+    row2 = braille_chars[1]
+    row3 = braille_chars[2]
+    steps = row1.size / 2
+    english_text = ""
+    for (i = 0; i <= steps; i++) {
+      idx = i * 2;
+      key = row1[i]
+      puts key
+    }
+    puts steps
+    BRAILLE_TO_ENGLISH[["0.", ".0", "00"]] # == 'z'
+  end
 end
    
-
-require 'spec helper'
-
-RSpec.describe Translateable do 
-  it 'should translate to hello to braille' do
-    expect(self.translate_to_braille("hello")).to eq(" ")
-  end
-end
- 
-
