@@ -12,5 +12,10 @@ RSpec.describe NightWriter do
     it 'exists' do 
       expect(@night_writer).to be_a(NightWriter)
     end
+
+    it 'has has attributes' do 
+      expect(@night_writer.read_file).to eq(@read_file)
+      expect(@night_writer.write_file).to eq(@write_file)
+    end
   end
 end
