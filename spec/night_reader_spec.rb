@@ -20,4 +20,11 @@ RSpec.describe NightReader do
   it 'can count the number of characters in the read_file' do 
     expect(@night_reader.read_file_char_count).to eq(11)
   end
+
+  describe 'Braille to english' do 
+    it 'can write to an output file' do
+      @night_reader.write_to_output_file
+      expect(File.read("./original_message.txt")).to eq( "hello world")
+    end
+  end
 end 
