@@ -2,7 +2,7 @@ require './lib/translateable'
 
 class NightReader
 attr_reader :read_file,
-              :write_file
+            :write_file
 
   def initialize(read_file, write_file)
 
@@ -28,7 +28,6 @@ attr_reader :read_file,
   def read_file_text  
     File.read(@read_file)
   end
-
 end
 
 night_reader = NightReader.new(ARGV[0], ARGV[1])
