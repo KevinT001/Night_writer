@@ -89,6 +89,5 @@ module Translateable
     end
     english_chars.join("")
   end
-    
 end
    
