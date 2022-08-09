@@ -9,7 +9,6 @@ class NightWriter
     @write_file = write_file
   end
 
-    
   def read_file_char_count
     read_file_text.length
   end

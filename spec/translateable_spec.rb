@@ -17,6 +17,4 @@ RSpec.describe Translateable do
       expect(Translateable::translate_to_english(braille_text)).to eq("hello world")
     end
   end
-
-    
 end
