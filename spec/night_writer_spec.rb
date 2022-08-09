@@ -8,7 +8,7 @@ RSpec.describe NightWriter do
     @night_writer = NightWriter.new(@read_file, @write_file)
   end
 
-  describe 'iteration 1' do 
+  describe 'File I/O setup' do 
 
     it 'exists' do 
       expect(@night_writer).to be_a(NightWriter)
@@ -23,6 +23,6 @@ RSpec.describe NightWriter do
       expect(@night_writer.read_file_char_count).to eq(11)
     end
 
-    
+
   end
 end
