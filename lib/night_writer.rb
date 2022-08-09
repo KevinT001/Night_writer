@@ -13,8 +13,7 @@ class NightWriter
     read_file_text.length
   end
 
-  def write_to_output_file #method that will take message.txt content and send it to "braille.txt"
-#iteration 2 --- first bullet point
+  def write_to_output_file 
       new_file = File.open(write_file, "w")
       new_file.write(translate_to_braille)
       new_file.close

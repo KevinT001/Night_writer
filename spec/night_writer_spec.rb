@@ -24,9 +24,8 @@ RSpec.describe NightWriter do
     end
   end
 
-  
-
   describe 'English to braille' do 
+    
     it 'can write to an output file' do
       @night_writer.write_to_output_file
       expect(File.read("./braille.txt")).to eq( "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...")
