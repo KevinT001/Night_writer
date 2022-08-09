@@ -64,8 +64,10 @@ module Translateable
  }.freeze
 
 
- def self.braille_chars_array(english_chars)
-   braille_chars = [[],[],[]]
+ def self.translate_to_braille(english_string)
+  #iterate through each character(which is key) 
+  #output each value(braille) 
+  braille_chars = [[],[],[]]
 
   english_string.split("").each do |char|   #splits the string up to each character
     braille_char = Translateable::ENGLISH_TO_BRAILLE[char] #Gives braille characters
@@ -73,30 +75,19 @@ module Translateable
     braille_chars[1] << braille_char[1] 
     braille_chars[2] << braille_char[2]
   end
-  braille_chars
- end
-
- def self.translate_to_braille(english_string)
-  #iterate through each character(which is key) 
-  #output each value(braille) 
-  # braille_chars = [[],[],[]]
-
-  # english_string.split("").each do |char|   #splits the string up to each character
-  #   braille_char = Translateable::ENGLISH_TO_BRAILLE[char] #Gives braille characters
-  #   braille_chars[0] << braille_char[0] 
-  #   braille_chars[1] << braille_char[1] 
-  #   braille_chars[2] << braille_char[2]
-  # end
-  # braille_chars.map do |row| 
-  #   row.join("") 
-   # ( #for each row must have only 80 characters before line break )
-  # end.join("\n") # creates the 3 rows for each translated character
-
-  self.braille_chars_array.map do |row|
-    row.join("")
-  end.join("\n")
+  braille_chars.map do |row| 
+    row.join("") 
+   ( #for each row must have only 80 characters before line break )
+  end.join("\n") # creates the 3 rows for each translated character
 end
    
-end 
+
+require 'spec helper'
+
+RSpec.describe Translateable do 
+  it 'should translate to hello to braille' do
+    expect(self.translate_to_braille("hello")).to eq(" ")
+  end
+end
  
 

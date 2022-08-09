@@ -10,14 +10,13 @@ class NightWriter
     
   end
 
-  def input_file_character_count
-      File.read(@input_file).count
-  end
-
+    
   def read_file_char_count
     read_file_text.length
   end
-  
+
+
+    
   def write_to_output_file #method that will take message.txt content and send it to "braille.txt"
 #iteration 2 --- first bullet point
       new_file = File.open(write_file, "w")
